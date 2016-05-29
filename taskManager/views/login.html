@@ -4,11 +4,11 @@
     </div>
     <form name="loginform" class="form" ng-submit="loginCtrl.login()" novalidate>
         <h3 class="text-center">Пожалуйста, авторизируйтесь</h3>
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-6 input-area">
         <input type="email" ng-model="loginCtrl.user.email" class="form-control form-group"
                placeholder="Введите e-mail" ng-required="true">
             </div>
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-6 input-area">
         <input type="password" ng-model="loginCtrl.user.pass" class="form-control form-group"
                placeholder="Введите пароль" ng-required="true">
             </div>

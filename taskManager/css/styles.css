@@ -143,6 +143,9 @@ textarea .form-control {
 .form-control[disabled] {
     background-color: #ffffff;
 }
+.form .input-area {
+    padding: 0 5px;
+}
 #header {
     margin-top: 5px;
     background-color: #f5f5f5;
@@ -244,7 +247,8 @@ textarea .form-control {
     .list-title {
         margin-left: 10px;
     }
-    #main-menu {
+    .container-fluid>.navbar-header,
+    .container-fluid>.navbar-collapse {
         margin-left: 0;
     }
 }
