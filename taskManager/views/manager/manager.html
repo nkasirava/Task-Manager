@@ -5,7 +5,7 @@
                 <a type="button" class="btn btn-success" data-toggle="collapse"
                    data-target="#newTask">Новая задача</a>
             </div>
-            <div >
+            <div>
                 <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"
                         data-target="#menu">
                     <span class="icon-bar"></span>
@@ -37,57 +37,57 @@
 
     <div ng-include="'views/manager/new-task.html'"></div>
 
-<div>
-    <h3 class="text-center">{{taskCtrl.currentView}}</h3>
-    <hr>
-    <div ng-repeat="task in taskCtrl.tasks | orderBy:'-date'" class="userslist"
-         ng-show="(task.status===taskCtrl.tab || taskCtrl.tab==='all') && task.author===currentUser.$id">
-        <div class="hidden-xs label label-default pull-left" label-color="{{task.status}}">
-            {{task.status}}
-        </div>
-        <div class="hidden-xs glyphicon glyphicon-chevron-right pull-right icon"></div>
-        <div class="glyphicon glyphicon glyphicon-info-sign pull-left hidden-sm hidden-md hidden-lg status-info"
-             label-color="{{task.status}}"></div>
-        <div class="col-sm-8 list-title" data-toggle="collapse" data-target="#{{task.$id}}">
-            <a ng-click="taskCtrl.getSpentTime(task)">{{task.name}}</a>
-        </div>
-        <p><span class="glyphicon glyphicon-time icon"></span> {{task.date | date:'dd.MM.yyyy'}}</p>
-        <div id="{{task.$id}}" class="collapsed-info collapse">
-            <p class="text-muted">
-                <span class="glyphicon glyphicon-user"></span> Исполнитель: {{task.executorName}}</p>
-            <p class="text-muted" ng-show="task.spentTime">
-                <span class="glyphicon glyphicon-hourglass"></span> Время: {{task.spentTime}}</p>
-            <form name="extraInfo">
+    <div>
+        <h3 class="text-center">{{taskCtrl.currentView}}</h3>
+        <hr>
+        <div ng-repeat="task in taskCtrl.tasks | orderBy:'-date'" class="userslist"
+             ng-show="(task.status===taskCtrl.tab || taskCtrl.tab==='all') && task.author===currentUser.$id">
+            <div class="hidden-xs label label-default pull-left" label-color="{{task.status}}">
+                {{task.status}}
+            </div>
+            <div class="hidden-xs glyphicon glyphicon-chevron-right pull-right icon"></div>
+            <div class="glyphicon glyphicon glyphicon-info-sign pull-left hidden-sm hidden-md hidden-lg status-info"
+                 label-color="{{task.status}}"></div>
+            <div class="col-sm-8 list-title" data-toggle="collapse" data-target="#{{task.$id}}">
+                <a ng-click="taskCtrl.getSpentTime(task)">{{task.name}}</a>
+            </div>
+            <p><span class="glyphicon glyphicon-time icon"></span> {{task.date | date:'dd.MM.yyyy'}}</p>
+            <div id="{{task.$id}}" class="collapsed-info collapse">
+                <p class="text-muted">
+                    <span class="glyphicon glyphicon-user"></span> Исполнитель: {{task.executorName}}</p>
+                <p class="text-muted" ng-show="task.spentTime">
+                    <span class="glyphicon glyphicon-hourglass"></span> Время: {{task.spentTime}}</p>
+                <form name="extraInfo">
                     <textarea rows="3" ng-model="task.description" class="form-control form-group"
                               placeholder="{{task.description}}"
                               ng-disabled="task.status==='resolved' || task.status==='closed'">
                     </textarea>
-            </form>
-            <div class="alert alert-success" ng-show="alertChange===true">
-                Данные были изменены.
-                <button type="button" class="btn btn-success" ng-click="alertChange=false">ОК</button>
-            </div>
-            <div class="alert alert-danger" ng-show="alertDelete===true">
-                Данные будут удалены безвозвратно. Продолжить?
-                <button type="button" class="btn btn-danger" ng-click="taskCtrl.removeTask(task)">Да</button>
-                <button type="button" class="btn btn-danger" ng-click="alertDelete=false">Нет</button>
-            </div>
-            <div class="buttons-group">
-                <button class="btn btn-info" ng-disabled="extraInfo.$pristine"
-                   ng-show="task.status==='new' || task.status==='in progress'"
-                   ng-click="taskCtrl.changeTaskData(task); alertChange=true">
-                    <span class="glyphicon glyphicon-refresh"></span> Изменить
-                </button>
-                <a class="btn btn-danger" ng-click="alertDelete=true"
-                   ng-show="task.status!=='resolved'">
-                    <span class="glyphicon glyphicon-remove"></span> Удалить
-                </a>
-                <a class="btn btn-success" ng-click="taskCtrl.closeTask(task)"
-                   ng-show="task.status==='resolved'">
-                    <span class="glyphicon glyphicon-ok"></span> Закрыть
-                </a>
+                </form>
+                <div class="alert alert-success" ng-show="alertChange===true">
+                    Данные были изменены.
+                    <button type="button" class="btn btn-success" ng-click="alertChange=false">ОК</button>
+                </div>
+                <div class="alert alert-danger" ng-show="alertDelete===true">
+                    Данные будут удалены безвозвратно. Продолжить?
+                    <button type="button" class="btn btn-danger" ng-click="taskCtrl.removeTask(task)">Да</button>
+                    <button type="button" class="btn btn-danger" ng-click="alertDelete=false">Нет</button>
+                </div>
+                <div class="buttons-group">
+                    <button class="btn btn-info" ng-disabled="extraInfo.$pristine"
+                            ng-show="task.status==='new' || task.status==='in progress'"
+                            ng-click="taskCtrl.changeTaskData(task); alertChange=true">
+                        <span class="glyphicon glyphicon-refresh"></span> Изменить
+                    </button>
+                    <a class="btn btn-danger" ng-click="alertDelete=true"
+                       ng-show="task.status!=='resolved'">
+                        <span class="glyphicon glyphicon-remove"></span> Удалить
+                    </a>
+                    <a class="btn btn-success" ng-click="taskCtrl.closeTask(task)"
+                       ng-show="task.status==='resolved'">
+                        <span class="glyphicon glyphicon-ok"></span> Закрыть
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>

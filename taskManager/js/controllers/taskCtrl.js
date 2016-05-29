@@ -1,5 +1,5 @@
 /**
- * Created by Natalie on 5/10/2016.
+ * Created by Natalie on 5/7/2016.
  */
 myApp.controller('taskController', ['$rootScope', '$firebaseObject',
                  '$firebaseArray', 'authentication',
@@ -43,7 +43,7 @@ myApp.controller('taskController', ['$rootScope', '$firebaseObject',
       task.status = 'closed';
       self.tasks.$save(task);
     };
-    self.beginTask = function(task){
+    self.startTask = function(task){
       var timestamp = new Date().valueOf();
       task.status = 'in progress';
       task.startDate = timestamp;
@@ -55,6 +55,10 @@ myApp.controller('taskController', ['$rootScope', '$firebaseObject',
       task.endDate = timestamp;
       self.tasks.$save(task);
     };
+    /**
+     * count the time passed from the starting to end date
+     * @param task
+     */
     self.getSpentTime = function(task) {
       var endDate = moment(task.endDate);
       var startDate = moment(task.startDate);
@@ -74,9 +78,8 @@ myApp.controller('taskController', ['$rootScope', '$firebaseObject',
       angular.forEach(self.users, function(value) {
         if (value.$id === executorId) {
           executor = value;
-          console.log (executor);
         }
       });
-      return executor.lastname + ' ' + executor.firstname
+      return executor.lastname + ' ' + executor.firstname;
     }
   }]);

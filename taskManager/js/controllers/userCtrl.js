@@ -1,11 +1,12 @@
 /**
- * Created by Natalie on 5/10/2016.
+ * Created by Natalie on 5/7/2016.
  */
 myApp.controller('userController', ['$firebaseAuth', '$firebaseObject',
-                 '$firebaseArray', 'authentication',
+  '$firebaseArray', 'authentication',
   function ($firebaseAuth, $firebaseObject, $firebaseArray, authentication) {
 
     var self = this;
+
     self.tab = 'all';
     self.currentView = 'Все пользователи';
 
@@ -36,7 +37,6 @@ myApp.controller('userController', ['$firebaseAuth', '$firebaseObject',
         self.errorMessage = error.message;
       })
     };
-
     self.removeUser = function (user) {
       self.users.$remove(user);
     };

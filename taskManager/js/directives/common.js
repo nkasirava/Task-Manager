@@ -1,11 +1,14 @@
 /**
- * Created by Natalie on 5/19/2016.
+ * Created by Natalie on 5/7/2016.
  */
-myApp.directive ('labelColor', function() {
+/**
+ * change label background color depending on the task (or user) status
+ */
+myApp.directive('labelColor', function () {
   return {
     restrict: 'A',
     link: function (scope, elem, attrs) {
-      attrs.$observe('labelColor', function() {
+      attrs.$observe('labelColor', function () {
         if (attrs.labelColor === 'new' || attrs.labelColor === 'manager') {
           elem.css("background-color", '#5bc0de');
         }
@@ -22,11 +25,14 @@ myApp.directive ('labelColor', function() {
     }
   }
 });
-myApp.directive ('iconColor', function() {
+/**
+ * change icon color depending on the task status
+ */
+myApp.directive('iconColor', function () {
   return {
     restrict: 'A',
     link: function (scope, elem, attrs) {
-      attrs.$observe('iconColor', function() {
+      attrs.$observe('iconColor', function () {
         if (attrs.iconColor === 'new') {
           elem.css("color", '#5bc0de');
         }

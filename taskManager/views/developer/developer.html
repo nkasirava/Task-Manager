@@ -37,40 +37,40 @@
 
     <div ng-include="'views/developer/calendar.html'"></div>
 
-        <h3 class="text-center">{{taskCtrl.currentView}}</h3>
-        <hr>
-        <div ng-repeat="task in taskCtrl.tasks | orderBy:'-date'" class="userslist"
-             ng-show="(task.status===taskCtrl.tab || taskCtrl.tab==='all') && task.executor===currentUser.$id">
-            <div class="hidden-xs label label-default pull-left" label-color="{{task.status}}">{{task.status}}</div>
-            <div class="hidden-xs glyphicon glyphicon-chevron-right pull-right icon"></div>
-            <div class="glyphicon glyphicon glyphicon-info-sign pull-left hidden-sm hidden-md hidden-lg status-info"
-                 label-color="{{task.status}}"></div>
-            <div class="col-sm-8 list-title" data-toggle="collapse" data-target="#{{task.$id}}">
-                <a>{{task.name}}</a>
-            </div>
-            <div><p><span class="glyphicon glyphicon-time icon">
+    <h3 class="text-center">{{taskCtrl.currentView}}</h3>
+    <hr>
+    <div ng-repeat="task in taskCtrl.tasks | orderBy:'-date'" class="userslist"
+         ng-show="(task.status===taskCtrl.tab || taskCtrl.tab==='all') && task.executor===currentUser.$id">
+        <div class="hidden-xs label label-default pull-left" label-color="{{task.status}}">{{task.status}}</div>
+        <div class="hidden-xs glyphicon glyphicon-chevron-right pull-right icon"></div>
+        <div class="glyphicon glyphicon glyphicon-info-sign pull-left hidden-sm hidden-md hidden-lg status-info"
+             label-color="{{task.status}}"></div>
+        <div class="col-sm-8 list-title" data-toggle="collapse" data-target="#{{task.$id}}">
+            <a>{{task.name}}</a>
+        </div>
+        <div><p><span class="glyphicon glyphicon-time icon">
         </span> {{task.date | date:'dd.MM.yyyy'}}</p>
-            </div>
-            <div id="{{task.$id}}" class="collapsed-info collapse">
-                <p class="text-muted"><span class="glyphicon glyphicon-user">
+        </div>
+        <div id="{{task.$id}}" class="collapsed-info collapse">
+            <p class="text-muted"><span class="glyphicon glyphicon-user">
             </span> Менеджер: {{task.authorName}}</p>
-                <p class="description">{{task.description}}</p>
-                <div class="buttons-group">
-                    <a class="btn btn-info" ng-click="taskCtrl.beginTask(task)"
-                       ng-show="task.status==='new'">
-                        <span class="glyphicon glyphicon-play-circle"></span> Приступить
-                    </a>
-                    <a class="btn btn-success" ng-click="taskCtrl.endTask(task)"
-                       ng-show="task.status==='in progress'">
-                        <span class="glyphicon glyphicon-ok"></span> Завершить
-                    </a>
+            <p class="description">{{task.description}}</p>
+            <div class="buttons-group">
+                <a class="btn btn-info" ng-click="taskCtrl.startTask(task)"
+                   ng-show="task.status==='new'">
+                    <span class="glyphicon glyphicon-play-circle"></span> Приступить
+                </a>
+                <a class="btn btn-success" ng-click="taskCtrl.endTask(task)"
+                   ng-show="task.status==='in progress'">
+                    <span class="glyphicon glyphicon-ok"></span> Завершить
+                </a>
                 <span class="info-default" ng-show="task.status==='resolved'">
                     <span class="glyphicon glyphicon-question-sign"></span> Задача на рассмотрении
                 </span>
                 <span class="info-default" ng-show="task.status==='closed'">
                     <span class="glyphicon glyphicon-ok-circle"></span> Задача одобрена!
                 </span>
-                </div>
             </div>
         </div>
     </div>
+</div>
