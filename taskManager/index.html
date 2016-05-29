@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Менеджер задач</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap-css/js/bootstrap.min.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+<div class="container-fluid" id="header" ng-controller="loginController as loginCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 pull-left">
+                <p class="pull-left" id="logo">
+                    <span class="glyphicon glyphicon-list-alt"></span> Менеджер Задач</p>
+            </div>
+            <div class="col-sm-6 text-left" ng-show="currentUser.firstname" ng-cloak>
+                <div class="pull-right" id="userinfo">
+                    <span class="glyphicon glyphicon-user"></span>
+                    Привет, {{currentUser.firstname}}
+                    <a ng-click="loginCtrl.logout()">Выйти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-view></div>
+<div class="footer">
+    <div class="container">
+        <p class="text-muted">Менеджер задач.<br>Copyright 2016. Все права защищены</p>
+    </div>
+</div>
+</body>
+<script src="app.js"></script>
+<script src="js/controllers/loginCtrl.js"></script>
+<script src="js/services/authentication.js"></script>
+<script src="js/controllers/userCtrl.js"></script>
+<script src="js/controllers/taskCtrl.js"></script>
+<script src="js/controllers/calendar.js"></script>
+<script src="js/directives/common.js"></script>
+</html>

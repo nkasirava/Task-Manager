@@ -1,0 +1,90 @@
+<div class="container">
+    <nav class="navbar navbar-default main-menu">
+        <div class="container-fluid" id="main-menu">
+            <div class="pull-right">
+                <a type="button" class="btn btn-success"
+                   data-toggle="collapse" data-target="#newUser">
+                    Новый пользователь</a>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"
+                        data-target="#menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="menu" class="navbar-collapse collapse pull-left text-center">
+                <ul>
+                    <li><a type="button" class="btn btn-default navbar-btn" ng-click="userCtrl.tab='all';
+                    userCtrl.currentView='Все пользователи'">
+                        Все</a></li>
+                    <li><a type="button" class="btn btn-default navbar-btn" ng-click="userCtrl.tab='manager';
+                    userCtrl.currentView='Менеджеры'">
+                        Менеджеры</a></li>
+                    <li><a type="button" class="btn btn-default navbar-btn" ng-click="userCtrl.tab='developer';
+                    userCtrl.currentView='Разработчики'">
+                        Разработчики</a></li>
+                    <li><a type="button" class="btn btn-default navbar-btn" ng-click="userCtrl.tab='admin';
+                    userCtrl.currentView='Администраторы'">
+                        Администраторы</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="error" class="alert alert-danger" ng-show="userCtrl.errorMessage">
+        {{userCtrl.errorMessage}}
+        <button type="button" class="btn btn-danger" ng-click="userCtrl.errorMessage=''">ОК</button>
+    </div>
+</div>
+
+<div ng-include="'views/admin/new-user.html'"></div>
+
+</div>
+<div class="container">
+    <h3 class="text-center">{{userCtrl.currentView}}</h3>
+    <hr>
+    <div ng-repeat="user in userCtrl.users | orderBy:'lastname'" class="userslist"
+         ng-show="user.status==userCtrl.tab || userCtrl.tab=='all'">
+        <div class="hidden-xs label label-default pull-left" label-color="{{user.status}}">{{user.status}}</div>
+        <div class="hidden-xs glyphicon glyphicon-chevron-right pull-right icon"></div>
+        <div class="glyphicon glyphicon glyphicon-info-sign pull-left hidden-sm hidden-md hidden-lg status-info"
+             label-color="{{user.status}}"></div>
+        <div class="col-sm-7 list-title" data-toggle="collapse" data-target="#{{user.$id}}"><a>
+            {{user.lastname + ' ' + user.firstname + ' ' + user.patronimic}}</a>
+        </div>
+        <p><span class="glyphicon glyphicon-envelope icon"></span> {{user.email}}</p>
+
+        <div id="{{user.$id}}" class="collapsed-info collapse">
+            <form name="extraInfo">
+                <input type="text" ng-model="user.lastname" class="form-control form-group"
+                       placeholder="{{user.lastname}}">
+                <input type="text" ng-model="user.firstname" class="form-control form-group"
+                       placeholder="{{user.firstname}}">
+                <input type="text" ng-model="user.patronimic" class="form-control form-group"
+                       placeholder="{{user.patronimic}}">
+                <input type="text" ng-model="user.contacts" class="form-control form-group"
+                       placeholder="{{user.contacts}}">
+            </form>
+            <div class="alert alert-success" ng-show="alertChange===true">
+                Данные были изменены.
+                <button type="button" class="btn btn-success" ng-click="alertChange=false">ОК</button>
+            </div>
+            <div class="alert alert-danger" ng-show="alertDelete===true">
+                Данные будут удалены безвозвратно. Продолжить?
+                <button type="button" class="btn btn-danger" ng-click="userCtrl.removeUser(user)">Да</button>
+                <button type="button" class="btn btn-danger" ng-click="alertDelete=false">Нет</button>
+            </div>
+            <div class="buttons-group">
+                <button class="btn btn-info" ng-disabled="extraInfo.$pristine"
+                   ng-click="userCtrl.changeUserData(user); alertChange=true">
+                    <span class="glyphicon glyphicon-refresh"></span> Изменить
+                </button>
+                <button class="btn btn-danger"
+                   ng-click="alertDelete=true">
+                    <span class="glyphicon glyphicon-remove"></span> Удалить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

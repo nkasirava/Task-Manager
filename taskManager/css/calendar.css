@@ -1,0 +1,37 @@
+.date {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: solid 1px #c5d5d3;
+    float: left;
+    font-size: 24px;
+    padding: 15px 10px;
+    margin: 0 0 15px 0;
+}
+.date h3 {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+}
+.calendar {
+    text-align: center;
+    vertical-align: middle;
+}
+.calendar p {
+    font-size: 20px;
+    color: #337ab7;
+}
+.calendarTask {
+    font-size: 20px;
+    color: #515151;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px -5px;
+}
+.arrows {
+    display: inline;
+    float: left;
+    font-size: 20px;
+    padding: 12px 0;
+    color: #969696;
+}

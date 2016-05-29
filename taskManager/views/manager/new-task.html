@@ -1,0 +1,37 @@
+<div class="collapse" id="newTask">
+    <div class="form">
+        <a class="glyphicon glyphicon-remove pull-right icon"
+           data-toggle="collapse" data-target="#newTask"></a>
+        <h3 class="text-center">Новая задача</h3>
+        <hr>
+        <div class="row">
+            <form name="myform" ng-submit="taskCtrl.createTask()" novalidate>
+                <div class="col-sm-12">
+                    <input type="text" maxlength='30' ng-model="taskCtrl.task.name"
+                           class="form-control form-group" placeholder="Название задачи" ng-required="true">
+                    <textarea rows="4" ng-model="taskCtrl.task.description" class="form-control form-group"
+                              placeholder="Описание" ng-required="true">
+                    </textarea>
+                </div>
+                <div class="col-sm-6 radio-input" ng-repeat="user in taskCtrl.users | orderBy:'lastname'"
+                     ng-show="user.status==='developer'">
+                    <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio" ng-model="taskCtrl.task.executor" value="{{user.$id}}"
+                               ng-required="true"></span>
+                        <div class="input-text">{{user.lastname + ' ' + user.firstname + ' '
+                                                + user.patronimic}}
+                        </div>
+                    </div>
+                    <h5 class="text-muted">Контакты: {{user.email}}, {{user.contacts}}</h5>
+                    <div class="clearfix border-bottom"></div>
+                </div>
+                <div class="col-sm-12 text-center margin-b10">
+                    <button type="submit" class='btn btn-primary btn-lg'
+                            ng-disabled="myform.$invalid">СОЗДАТЬ ЗАДАЧУ
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

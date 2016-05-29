@@ -1,0 +1,50 @@
+<div class="container collapse" id="newUser">
+    <div class="form">
+        <a class="glyphicon glyphicon-remove pull-right icon"
+           data-toggle="collapse" data-target="#newUser"></a>
+        <h3 class="text-center">Новый пользователь</h3>
+        <hr>
+        <div class="row">
+            <form name="myform" ng-submit="userCtrl.createUser()" novalidate>
+
+                <div class="col-sm-6">
+                    <input type="text" ng-model="userCtrl.user.lastname" class="form-control form-group"
+                           placeholder="Фамилия" ng-required="true">
+                    <input type="text" ng-model="userCtrl.user.firstname" class="form-control form-group"
+                           placeholder="Имя" ng-required="true">
+                    <input type="text" ng-model="userCtrl.user.patronimic" class="form-control form-group"
+                           placeholder="Отчество" ng-required="true">
+                </div>
+                <div class="col-sm-6">
+                    <input type="email" ng-model="userCtrl.user.email" class="form-control form-group"
+                           placeholder="E-mail" ng-required="true">
+                    <input type="text" ng-model="userCtrl.user.contacts" class="form-control form-group"
+                           placeholder="Контакты" ng-required="true">
+                    <input type="password" ng-model="userCtrl.user.pass" class="form-control form-group"
+                           placeholder="Пароль" ng-required="true">
+                </div>
+                <div class="radio-input col-sm-3">
+                    <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="radio" ng-model="userCtrl.user.status" value="manager" ng-required="true">
+                </span>
+                        <div class="input-text">Менеджер</div>
+                    </div>
+                </div>
+
+                <div class="radio-input col-sm-3">
+                    <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="radio" ng-model="userCtrl.user.status" value="developer" ng-required="true">
+                </span>
+                        <div class="input-text">Разработчик</div>
+                    </div>
+                </div>
+                <div class="btn-send text-center col-xs-12">
+                    <button type="submit" class='btn btn-primary btn-lg' ng-disabled="myform.$invalid">СОЗДАТЬ</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

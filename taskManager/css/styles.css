@@ -1,0 +1,250 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 140px;
+}
+label {
+    margin: 0;
+    font-weight: 400;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+ul {
+    padding: 0;
+}
+h3 {
+    margin: 10px 0 20px 0;
+}
+textarea {
+    resize: none;
+}
+textarea .form-control {
+    height: 200px;
+}
+.icon {
+    color: #969696;
+    size: 12px;
+}
+.label {
+    font-size: 15px;
+    width: 100px;
+}
+.label.label-default {
+    background-color: #c5d5d3;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+.main-menu {
+    margin: 10px 0;
+}
+.main-menu a {
+    font-size: 16px;
+    margin: 8px 0;
+}
+.main-menu li {
+    display: inline;
+}
+#main-menu {
+    margin-left: -15px;
+}
+.container {
+    max-width: 1000px;
+}
+.display-inline {
+    display: inline;
+}
+.form {
+    border-radius: 10px;
+    border: 1px dotted #dddddd;
+    padding: 15px;
+    margin: 15px;
+    background-color: #f5f5f5;
+}
+.btn-send button {
+    width: 200px;
+}
+.buttons-group {
+    text-align: center;
+}
+.buttons-group a {
+    font-size: 16px;
+    margin: 5px;
+}
+.userslist {
+    padding: 15px;
+    border-bottom: 1px dotted #dddddd;
+}
+.userslist:hover {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.userslist a {
+    font-size: 20px;
+}
+.userslist button {
+    font-size: 20px;
+}
+.userslist p {
+    padding-top: 5px;
+}
+.userslist > .icon {
+    margin-top: 7px;
+}
+.form-control {
+    font-size: 16px;
+}
+.collapsed-info {
+    margin-top: 15px;
+}
+.navbar-toggle {
+    margin-left: 15px;
+}
+.alert {
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+}
+.alert button {
+    margin: 5px;
+    width: 70px;
+    font-size: 16px;
+}
+.description {
+    font-size: 16px;
+    color: #515151;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #c5d5d3;
+}
+.radio-list {
+    margin: 10px 0;
+    padding: 0 20px;
+}
+.radio-list h5 {
+    font-size: 16px;
+    color: #969696;
+    margin: 0 0 10px 25px;
+}
+.radio-list h4 {
+    margin: 0;
+}
+.text-muted {
+    margin-bottom: 10px;
+}
+.form-control[disabled] {
+    background-color: #ffffff;
+}
+#header {
+    margin-top: 5px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    border: solid 1px #dddddd;
+    padding-top: 10px;
+}
+#logo {
+    font-size: 24px;
+    color: #515151;
+    cursor: default;
+}
+#userinfo {
+    margin: 7px 0;
+    font-size: 16px;
+}
+#userinfo a {
+    padding-left: 10px;
+    color: #282828;
+    text-decoration: underline;
+}
+#userinfo a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+.navbar-default {
+    background-color: #ffffff;
+    border: none;
+    margin-bottom: 0;
+}
+.navbar-default .navbar-collapse {
+    border: none;
+}
+.float-content {
+    float:left;
+    margin-right: 5px;
+}
+.radio-input {
+    position: static;
+    margin: 10px 0 15px 0;
+}
+.input-group .input-text {
+    background-color: #ffffff;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+}
+.info-default {
+    background-color: #ffffff;
+    padding: 6px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    color: #333333;
+    display: inline-block;
+    font-size: 20px;
+    cursor: default;
+}
+.status-info {
+    font-size: 12px;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 3px;
+    text-align: center;
+    margin-right: 0;
+    margin-top: 2px;
+}
+
+#userstatus {
+    padding: 10px;
+    font-size: 16px;
+}
+#userstatus p {
+    margin-left: 20px;
+    font-size: 14px;
+    margin-top: -5px;
+    color: #969696;
+}
+#error {
+    margin: 15px;
+}
+.footer {
+    height:100px;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    border-top: 1px dotted #969696;
+    padding: 20px;
+}
+.footer p {
+    line-height: 27px;
+}
+
+@media (max-width: 768px) {
+    .col-xs-12 {
+        padding: 0;
+        margin-bottom: 5px;
+    }
+    .list-title {
+        margin-left: 10px;
+    }
+    #main-menu {
+        margin-left: 0;
+    }
+}
